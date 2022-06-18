@@ -1,0 +1,14 @@
+syntax = "proto3"
+
+import "protos/shipment.proto";
+
+message Product {
+    // The QR code assosciated identifier of the product
+    string identifier = 1;
+
+    // Name of the product
+    string product_name = 2;
+
+    // Assosciated shipments
+    repeated Shipment shipments = 3;
+}

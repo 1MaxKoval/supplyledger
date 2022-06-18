@@ -1,0 +1,9 @@
+syntax = "proto3"
+
+message Actor {
+    // The actors/organizations public key
+    string public_key = 1;
+
+    // Name of the organization
+    string organization_name = 2;
+}

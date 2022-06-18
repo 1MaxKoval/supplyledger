@@ -1,0 +1,20 @@
+syntax = "proto3"
+
+message Shipment {
+
+    // The key of the actor starting the shipment.
+    string producer_key = 1;
+
+    message Location {
+        sint64 latitude = 1;
+        sint64 longitude = 2;
+    }
+
+    // The time of the shipment
+    uint64 timestamp = 2;
+
+    // The location of the start of the shipment
+    Location location = 3;
+
+    //TODO: Assosciate it with sensor and sensor data.
+}
