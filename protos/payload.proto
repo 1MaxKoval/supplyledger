@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "protos/shipment.proto";
+
 message SupplyLedgerPayload {
     enum Action {
         CREATE_ACTOR = 0;
@@ -12,14 +14,31 @@ message SupplyLedgerPayload {
     CreateActorAction create_actor = 2;
     CreateProductAction create_product = 3;
     AddShipmentAction add_shipment = 4;
+    AddMeasurementAction add_measurement = 5;
 }
 
 message CreateActorAction {
-
     // Name of the actor
     string organization_name = 1;
-
 }
 
-// TODO: Carry on working here, define a Sensor and assosciate it with
-// measurements
+message CreateProductAction {
+    // Name of the product
+    string name = 2;
+}
+
+message AddShipmentAction {
+    // Shipment start location
+    Shipment.Location location = 1;
+    // Time at which the shipment started
+    uint64 timestamp = 2;
+    // The product to which the shipment should be added
+    string product_id = 3;
+}
+
+message AddMeasurementAction {
+    string shipment_id = 1;
+    double value = 2;
+    uint64 time = 3;
+    string sensor_id = 4;
+}

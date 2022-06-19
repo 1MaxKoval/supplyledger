@@ -1,4 +1,4 @@
-syntax = "proto3"
+syntax = "proto3";
 
 message Product {
     // The QR code assosciated identifier of the product
@@ -7,6 +7,6 @@ message Product {
     // Name of the product
     string product_name = 2;
 
-    // Assosciated shipments
+    // Assosciated shipment ids
     repeated string shipments = 3;
 }
