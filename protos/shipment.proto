@@ -1,6 +1,18 @@
-syntax = "proto3"
+syntax = "proto3";
 
 message Shipment {
+
+    // The measurements assosciated with the shipments.
+    message Measurement {
+        // Value of the measurement supplied by the sensor.
+        double value = 1;
+        // The time at which the measurement has been taken.
+        uint64 timestamp = 2;
+        // Name of the sensor.
+        string sensor_name = 3;
+        // Sensor identifier.
+        string sensor_id = 4;
+    }
 
     // The key of the actor starting the shipment.
     string producer_key = 1;
@@ -16,5 +28,9 @@ message Shipment {
     // The location of the start of the shipment
     Location location = 3;
 
-    //TODO: Assosciate it with sensor and sensor data.
+    // Identifier of the shipment
+    string id = 4;
+
+    // Measurements collected during shipment
+    repeated Measurement measurements = 5;
 }

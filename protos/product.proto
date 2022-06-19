@@ -1,7 +1,5 @@
 syntax = "proto3"
 
-import "protos/shipment.proto";
-
 message Product {
     // The QR code assosciated identifier of the product
     string identifier = 1;
@@ -10,5 +8,5 @@ message Product {
     string product_name = 2;
 
     // Assosciated shipments
-    repeated Shipment shipments = 3;
+    repeated string shipments = 3;
 }
