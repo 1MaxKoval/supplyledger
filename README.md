@@ -50,3 +50,8 @@ You might consider it useful to be able to access your VM through a GUI for this
 #### KVM configuration
 
 Before launching Docker, install KVM: [KVM Installation](https://help.ubuntu.com/community/KVM/Installation)
+
+
+# Helpful resources
+
+TODO: Format https://www.youtube.com/watch?v=4VUaZkwJdCc
