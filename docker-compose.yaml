@@ -2,6 +2,28 @@ version: '2.1'
 
 services:
 
+  supplyledger-client:
+    container_name: supplyledger-client
+    build:
+        context: .
+        dockerfile: ./client/Dockerfile
+        args:
+            - http_proxy
+            - https_proxy
+            - no_proxy
+    environment:
+      - 'http_proxy=${http_proxy}'
+      - 'https_proxy=${https_proxy}'
+      - 'no_proxy=rest-api,validator,${no_proxy}'
+    volumes:
+      - '.:/project/supplyledger/'
+    ports:
+      - '0.0.0.0:3000:3000'
+    depends_on: 
+      - sawtooth-rest-api
+    entrypoint: "bash -c \"python3 -m build && pip3 install dist/*.whl && tail -f /dev/null\""
+    stop_signal: SIGKILL
+
   supplyledger-processor:
     container_name: supplyledger-processor
     build:
